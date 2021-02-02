@@ -4,8 +4,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+#运行前安装依赖
+#pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+#提前下载并移动文件至:/home/wanghao/anaconda3/lib/python3.6/site-packages/synonyms/data/words.vector.gz
+#确保转换的文档的编码 保存成txt,不能是unicode.
+#bash 调用命令
+#python code/augment.py --input=xqb_die_merge_1000to100_for_augument.txt --output=train_augmented_numaug4_alpha005.txt --num_aug=4 --alpha=0.05
+
+#num_aug参数：每一条语料将增强的个数
+#alpha参数：每一条语料中改动的词所占的比例
+
 from eda import *
 
+#从bash读入参数
 import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument("--input", required=True, type=str, help="原始数据的输入文件目录")
